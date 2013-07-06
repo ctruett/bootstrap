@@ -1,0 +1,82 @@
+//-------------------------------- imports
+@import url(http://fonts.googleapis.com/css?family=Cousine:400,700)
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic)
+
+//-------------------------------- fonts
+$serif: 'Merriweather', 'Georgia', 'Times New Roman', serif
+$sans: 'Arial', sans-serif
+$mono: 'Cousine', 'Courier New', monospaced
+
+//-------------------------------- variables
+$gfz: golden-ratio($base-font-size, 1)
+
+//-------------------------------- general
+body
+  color: #333
+  font-family: $serif
+  font-weight: 400
+  text-rendering: optimizeLegibility
+
+p, table, ul, ol, dl, blockquote, address
+  margin: golden-ratio($base-font-size, 0) 0
+
+//-------------------------------- headers
+=header($n)
+  font-weight: 700
+  font-size: golden-ratio($base-font-size, $n)
+  line-height: golden-ratio($base-font-size, $n + 1)
+  margin: golden-ratio($base-font-size, $n) 0
+
+h1
+  +header(2)
+
+h2
+  +header(1)
+
+h3
+  +header(0)
+
+h4
+  font-weight: 700
+  line-height: $gfz
+
+//-------------------------------- tables
+table
+  width: 100%
+  tr
+    th
+      font-weight: bold
+      border-bottom: 1px solid
+    td
+      border-bottom: 1px dotted
+    td, th
+      text-align: left
+      &:last-child
+        text-align: right
+
+address
+  font-style: normal
+
+ul, ol
+  padding-left: 2em
+
+//-------------------------------- code blocks
+*:not(pre) > code
+  padding: 4px 4px 1px
+
+pre, code
+  font-family: $mono
+
+pre[class*="language-"]
+  padding: $gfz
+  margin: $gfz 0
+  overflow: auto
+
+//-------------------------------- text selection
+::-moz-selection
+  text-shadow: none
+  background: #b3d4fc
+
+::selection
+  text-shadow: none
+  background: #b3d4fc

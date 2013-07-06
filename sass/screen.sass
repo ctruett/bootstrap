@@ -1,0 +1,50 @@
+//-------------------------------- normalize
+@import "normalize"
+@import "compass/support"
+
+//-------------------------------- CSS3 support
+$experimental-support-for-microsoft: true
+$experimental-support-for-mozilla: true
+$experimental-support-for-webkit: true
+
+//-------------------------------- typography
+@import "compass/typography"
+@import "compass/typography/vertical_rhythm"
+
+//-------------------------------- clearfix
+@import "compass/utilities/general/clearfix"
+
+//-------------------------------- bourbon
+@import "bourbon/bourbon"
+
+//-------------------------------- variables
+$max-width: em(960)
+
+$base-font-size: 16px
+$base-line-height: golden-ratio($base-font-size, 1) * 1.1
+$gunit: golden-ratio($base-font-size, 1)
+
+@include establish-baseline
+
+//-------------------------------- final imports
+@import "typography"
+@import "colors"
+
+//-------------------------------- styles
+body
+  max-width: $max-width
+  margin: 0 auto
+
+.grid-parent
+  display: table
+
+.grid
+  padding: 0 $gunit
+  display: table-cell
+  border-bottom: $gunit solid transparent
+
+  & > :first-child
+    margin-top: 0
+
+  & > :last-child
+    margin-bottom: 0
